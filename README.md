@@ -23,25 +23,26 @@ Please follow the next instruction:
 
 5) Compile vsm-dji-onboard
 
-		5.1 Clone the vsm-dji-onboard and common repositories:
+	5.1 Clone the vsm-dji-onboard and common repositories:
 
-        git clone git@github.com:UgCS/vsm-cpp-common.git
-				git clone git@github.com:UgCS/dji-onboard-vsm.git
+		git clone git@github.com:UgCS/vsm-cpp-common.git
+		git clone git@github.com:UgCS/dji-onboard-vsm.git
 					 
-		5.2 Make and enter into build directory:
+	5.2 Make and enter into build directory:
 		
-				mkdir -p build/vsm-dji-onboard
-				cd build/vsm-dji-onboard
+		mkdir -p build/vsm-dji-onboard
+		cd build/vsm-dji-onboard
 
-		5.3 Create make files:
+	5.3 Create make files:
 
-				ToDo cmake -DVSM_SDK_DIR=$HOME/install/opt/vsm-sdk -DPROTOBUF_INSTALL_DIR=~/vsm-cpp-deps/toolchain/linux/protobuf/ -DCOMMON_SOURCES=$HOME/vsm-cpp-common -G"Unix Makefiles" $HOME/vsm-dji-onboard
+		ToDo
+		cmake -DVSM_SDK_DIR=$HOME/install/opt/vsm-sdk -DPROTOBUF_INSTALL_DIR=~/vsm-cpp-deps/toolchain/linux/protobuf/ -DCOMMON_SOURCES=$HOME/vsm-cpp-common -G"Unix Makefiles" $HOME/vsm-dji-onboard
 				
-		5.4 Launch the build:
+	5.4 Launch the build:
 
-				If build suceeds you'll have vsm-ardupilot executable in current directory.
+		If build suceeds you'll have vsm-ardupilot executable in current directory.
 
-				cmake --build .
+		cmake --build .
 
 
 ## How to run vsm-dji-onboard {#run_vsm}
@@ -56,9 +57,9 @@ There is a configuration file in the sources: vsm.conf.
 
 This file contains many settings with description, but for successfully connection, we need to set up the next settings:
 
-		vehicle.dji.app_id - ToDo
+	vehicle.dji.app_id - ToDo
 		
-		vehicle.dji.app_key - ToDo
+	vehicle.dji.app_key - ToDo
 		
-		vehicle.dji.serial - ToDo
+	vehicle.dji.serial - ToDo
 
