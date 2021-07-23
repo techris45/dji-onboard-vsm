@@ -63,3 +63,6 @@ This file contains many settings with description, but for successfully connecti
 		
 	vehicle.dji.serial - ToDo
 
+### How to run vsm-dji-onboard {#run_vsm}
+
+After successful build and configuration, you could connect this vsm to UgCS server. Please run the server and vsm in the same network and your vehicle will be availiable in UgCS.
