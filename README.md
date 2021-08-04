@@ -9,6 +9,12 @@ VSM for DJI platform is implemented using C++ language (C++14 standard) and base
 
 VSM for DJI platform uses CMake as its build system to keep it platform-independent.
 
+## Supported drones {#build_vsm}
+
+The VSM for DJI platform supports the next drones: A3、N3、M100、M210 V1、M600、M600 Pro, M210 V2.
+
+The next DJI OSDK version 4.x is not supported right now, but it can be implemented. The DJI M300 RTK support will be implemented after changing OSDK to 4.x version.
+
 ## How to build vsm-dji-onboard {#build_vsm}
 
 Please follow the next instruction:
