@@ -43,3 +43,4 @@ WORKDIR /pitools
 RUN apt-get update && apt-get install -y g++-aarch64-linux-gnu
 ADD toolchain-arm64.cmake ${PI_HOME}/
 
+WORKDIR /dji-onboard-vsm/docker-cross-armhf/
