@@ -23,7 +23,7 @@ Please follow the next instruction:
 
 2) Checkout the current repository.
 
-3) Checkout latest UgCS VSM SDK from the repository [https://github.com/ugcs/vsm-cpp-sdk.git](https://github.com/ugcs/vsm-cpp-sdk).
+3) Checkout the branch "dev-dji-onboard-vsm" of UgCS VSM SDK from the repository [https://github.com/ugcs/vsm-cpp-sdk.git](https://github.com/ugcs/vsm-cpp-sdk).
 
 4) Checkout the 3.9 tag for the DJI Onboard SDK from the repository [https://github.com/dji-sdk/Onboard-SDK.git](https://github.com/dji-sdk/Onboard-SDK.git).
 	
