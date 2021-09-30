@@ -15,7 +15,39 @@ The VSM for DJI platform supports the next drones: A3、N3、M100、M210 V1、M6
 
 The next DJI OSDK version 4.x is not supported right now, but it can be implemented. The DJI M300 RTK support will be implemented after changing OSDK to 4.x version.
 
-## How to build vsm-dji-onboard {#build_vsm}
+## How to build vsm-dji onboard on Docker container
+
+Please follow the next instruction:
+
+1) Install Docker application.
+
+2) Checkout the current repository.
+
+3) Checkout latest UgCS VSM SDK from the repository [https://github.com/ugcs/vsm-cpp-sdk.git](https://github.com/ugcs/vsm-cpp-sdk).
+
+4) Checkout the 3.9 tag for the DJI Onboard SDK from the repository [https://github.com/dji-sdk/Onboard-SDK.git](https://github.com/dji-sdk/Onboard-SDK.git).
+	
+5) Build the docker container:
+	
+		cd dji-onboard-vsm/docker-cross-armhf
+		docker build . -t docker-cross-armhf
+	
+6) Build the dji-vsm-onboard:
+
+ 	6.1 Run the next command: 
+ 
+		docker run -it -u root -v $work_dir/git/vsm-cpp-sdk:/vsm-cpp-sdk -v $work_dir/Onboard-SDK:/dji-onboard-sdk -v $work_dir/dji-onboard-vsm:/dji-onboard-vsm -v $work_dir/dji-onboard-vsm/out:/out docker-cross-armhf ./build.sh $architecture
+	
+		Where:
+		$work_dir/git/vsm-cpp-sdk - path to the local copy of the https://github.com/ugcs/vsm-cpp-sdk
+		$work_dir/Onboard-SDK - path to the local copy of the https://github.com/dji-sdk/Onboard-SDK.git
+		$work_dir/dji-onboard-vsm - path to the local copy of the https://github.com/ugcs/dji-onboard-vsm.git
+		$work_dir/dji-onboard-vsm/out - path to the output folder
+		$architecture - select one of available architecture x86, arm64 or armhf
+		
+	6.2 After successful build you will have two files in the output folder: vsm-dji-onboard and vsm-dji-onboard.conf.
+
+## How to build vsm-dji-onboard manually {#build_vsm}
 
 Please follow the next instruction:
 
@@ -41,7 +73,6 @@ Please follow the next instruction:
 
 	5.3 Create make files:
 
-		ToDo
 		cmake -DVSM_SDK_DIR=$HOME/install/opt/vsm-sdk -DPROTOBUF_INSTALL_DIR=~/vsm-cpp-deps/toolchain/linux/protobuf/ -DCOMMON_SOURCES=$HOME/vsm-cpp-common -G"Unix Makefiles" $HOME/vsm-dji-onboard
 				
 	5.4 Launch the build:
@@ -53,22 +84,22 @@ Please follow the next instruction:
 
 ## How to run vsm-dji-onboard {#run_vsm}
 
-### How to install vsm-dji-onboard {#install_vsm}
-
-ToDo 
-
 ### How to configure vsm-dji-onboard {#configure_vsm}
 
 There is a configuration file in the sources: vsm.conf.
 
 This file contains many settings with description, but for successfully connection, we need to set up the next settings:
 
-	vehicle.dji.app_id - ToDo
+	vehicle.dji.app_id - DJI OSDK App IP, please find more info there https://developer.dji.com/onboard-sdk/
 		
-	vehicle.dji.app_key - ToDo
+	vehicle.dji.app_key - DJI OSDK App Key, please find more info there https://developer.dji.com/onboard-sdk/
 		
-	vehicle.dji.serial - ToDo
+	vehicle.dji.serial - serial device port connected with DJI Autopilot. (ex. /dev/ttyUSB0 )
 
 ### How to run vsm-dji-onboard {#run_vsm}
+		
+Please execute the next command: 
+		
+	vsm-dji-onboard --config vsm-dji-onboard.conf
 
 After successful build and configuration, you could connect this vsm to UgCS server. Please run the server and vsm in the same network and your vehicle will be availiable in UgCS.
